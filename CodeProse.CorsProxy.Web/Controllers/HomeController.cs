@@ -14,23 +14,34 @@ namespace CodeProse.CorsProxy.Web.Controllers
         [OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
         public ActionResult Index(string url)
         {
-            var request = (HttpWebRequest)WebRequest.Create(url);
+            Response.AddHeader("Access-Control-Allow-Origin", "*");
+            Response.AddHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, X-DocuSign-Authentication"); // X-DocuSign-Authentication is a hack, but so is their API
+            //Response.AddHeader("Access-Control-Allow-Credentials", "true");
 
-            request.Method = Request.HttpMethod;
-            SetHeaders(Request.Headers, request.Headers);
-
-            switch (Request.HttpMethod)
+            if (Request.HttpMethod == "OPTIONS")
             {
-                case "POST":
-                case "PUT":
-                    var data = ReadStream(Request.InputStream);
-                    WriteStream(data, request);
-                    break;
+                return new HttpStatusCodeResult(HttpStatusCode.NoContent);
             }
+            else
+            {
+                var request = (HttpWebRequest)WebRequest.Create(url);
 
-            var response = (HttpWebResponse)request.GetResponse();
+                request.Method = Request.HttpMethod;
+                SetHeaders(Request.Headers, request.Headers);
 
-            return new HttpWebResponseResult(response);
+                switch (Request.HttpMethod)
+                {
+                    case "POST":
+                    case "PUT":
+                        var data = ReadStream(Request.InputStream);
+                        WriteStream(data, request);
+                        break;
+                }
+
+                var response = (HttpWebResponse)request.GetResponse();
+
+                return new HttpWebResponseResult(response);
+            }
         }
 
         private static void SetHeaders(NameValueCollection inputHeaders, NameValueCollection outputHeaders)

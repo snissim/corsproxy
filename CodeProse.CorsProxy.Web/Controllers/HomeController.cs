@@ -7,7 +7,7 @@ using System.IO.Compression;
 using System.Diagnostics;
 using System.Collections.Specialized;
 
-namespace CodeProse.CorsProxy.Web.Controllers
+namespace CorsProxy.Web.Controllers
 {
     public class HomeController : Controller
     {

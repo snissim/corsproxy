@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace CodeProse.CorsProxy.Web
+namespace CorsProxy.Web
 {
     public class RouteConfig
     {

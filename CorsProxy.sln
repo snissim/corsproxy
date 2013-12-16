@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeProse.CorsProxy.Web", "CodeProse.CorsProxy.Web\CodeProse.CorsProxy.Web.csproj", "{0780B621-3EAD-4A87-8FEB-D6677E42808D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsProxy.Web", "CodeProse.CorsProxy.Web\CorsProxy.Web.csproj", "{0780B621-3EAD-4A87-8FEB-D6677E42808D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeProse.CorsProxy.Web.Tests", "CodeProse.CorsProxy.Web.Tests\CodeProse.CorsProxy.Web.Tests.csproj", "{6DF52C11-C2D7-44F6-863B-564B50830D84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsProxy.Web.Tests", "CodeProse.CorsProxy.Web.Tests\CorsProxy.Web.Tests.csproj", "{6DF52C11-C2D7-44F6-863B-564B50830D84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
